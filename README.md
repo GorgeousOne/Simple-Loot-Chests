@@ -1,1 +1,1 @@
-# SimpleLootBox
+# Simple Loot Chests

@@ -1,0 +1,8 @@
+<profiles>
+	<profile>
+		<id>custom-output-dir</id>
+		<properties>
+			<outputDirectory>[path/to/output/directory]</outputDirectory>	//path to where you want to copy plugin jar to
+		</properties>
+	</profile>
+</profiles>

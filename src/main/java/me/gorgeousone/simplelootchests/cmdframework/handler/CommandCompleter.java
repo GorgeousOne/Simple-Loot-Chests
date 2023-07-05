@@ -1,6 +1,6 @@
-package me.gorgeousone.simplelootbox.cmdframework.handler;
+package me.gorgeousone.simplelootchests.cmdframework.handler;
 
-import me.gorgeousone.simplelootbox.cmdframework.command.BaseCommand;
+import me.gorgeousone.simplelootchests.cmdframework.command.BaseCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;

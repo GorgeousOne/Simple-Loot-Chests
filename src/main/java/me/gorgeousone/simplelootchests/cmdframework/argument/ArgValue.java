@@ -1,4 +1,4 @@
-package me.gorgeousone.simplelootbox.cmdframework.argument;
+package me.gorgeousone.simplelootchests.cmdframework.argument;
 
 import org.bukkit.ChatColor;
 

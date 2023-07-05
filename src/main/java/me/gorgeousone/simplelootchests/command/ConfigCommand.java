@@ -1,6 +1,6 @@
-package me.gorgeousone.simplelootbox.command;
+package me.gorgeousone.simplelootchests.command;
 
-import me.gorgeousone.simplelootbox.cmdframework.command.BaseCommand;
+import me.gorgeousone.simplelootchests.cmdframework.command.BaseCommand;
 import net.wesjd.anvilgui.AnvilGUI;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
@@ -15,10 +15,10 @@ public class ConfigCommand extends BaseCommand {
 	private final JavaPlugin plugin;
 	
 	public ConfigCommand(JavaPlugin plugin) {
-		super("lootbox");
+		super("lootchests");
 		this.plugin = plugin;
-		addAlias("lb");
-		addAlias("box");
+		addAlias("lc");
+		addAlias("loot");
 		
 		setPlayerRequired(true);
 	}
@@ -26,6 +26,7 @@ public class ConfigCommand extends BaseCommand {
 	@Override
 	protected void onCommand(CommandSender sender, String[] args) {
 		Player player = (Player) sender;
+		sender.sendMessage("nuh");
 		ItemStack item = new ItemStack(Material.COOKIE);
 		
 		AnvilGUI.Builder builder = new AnvilGUI.Builder()

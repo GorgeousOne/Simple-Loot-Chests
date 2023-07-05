@@ -1,10 +1,10 @@
-package me.gorgeousone.simplelootbox;
+package me.gorgeousone.simplelootchests;
 
-import me.gorgeousone.simplelootbox.cmdframework.handler.CommandHandler;
-import me.gorgeousone.simplelootbox.command.ConfigCommand;
+import me.gorgeousone.simplelootchests.cmdframework.handler.CommandHandler;
+import me.gorgeousone.simplelootchests.command.ConfigCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class SimpleLootBox extends JavaPlugin {
+public final class SimpleLootChestsPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
