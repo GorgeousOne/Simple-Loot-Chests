@@ -1,4 +1,4 @@
-package me.gorgeousone.paintball.cmdframework.command;
+package me.gorgeousone.simplelootbox.cmdframework.command;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;

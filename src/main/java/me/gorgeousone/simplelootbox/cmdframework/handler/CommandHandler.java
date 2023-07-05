@@ -1,6 +1,6 @@
-package me.gorgeousone.paintball.cmdframework.handler;
+package me.gorgeousone.simplelootbox.cmdframework.handler;
 
-import me.gorgeousone.paintball.cmdframework.command.BaseCommand;
+import me.gorgeousone.simplelootbox.cmdframework.command.BaseCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

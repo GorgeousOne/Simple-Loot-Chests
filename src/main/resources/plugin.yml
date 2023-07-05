@@ -1,3 +1,6 @@
 name: SimpleLootBox
 version: '${project.version}'
 main: me.gorgeousone.simplelootbox.SimpleLootBox
+commands:
+    lootbox:
+        default: op

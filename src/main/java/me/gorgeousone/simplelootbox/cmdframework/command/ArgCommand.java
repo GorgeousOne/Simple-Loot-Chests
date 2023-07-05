@@ -1,7 +1,7 @@
-package me.gorgeousone.paintball.cmdframework.command;
+package me.gorgeousone.simplelootbox.cmdframework.command;
 
-import me.gorgeousone.paintball.cmdframework.argument.ArgValue;
-import me.gorgeousone.paintball.cmdframework.argument.Argument;
+import me.gorgeousone.simplelootbox.cmdframework.argument.ArgValue;
+import me.gorgeousone.simplelootbox.cmdframework.argument.Argument;
 import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;

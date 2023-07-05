@@ -1,4 +1,4 @@
-package me.gorgeousone.paintball.cmdframework.argument;
+package me.gorgeousone.simplelootbox.cmdframework.argument;
 
 public class Flag {
 	
