@@ -3,4 +3,5 @@ version: '${project.version}'
 main: me.gorgeousone.simplelootbox.SimpleLootBox
 commands:
     lootbox:
+        aliases: [lb]
         default: op

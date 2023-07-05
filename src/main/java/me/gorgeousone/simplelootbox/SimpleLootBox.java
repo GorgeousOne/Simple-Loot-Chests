@@ -12,7 +12,7 @@ public final class SimpleLootBox extends JavaPlugin {
     }
 
     void registerCommands() {
-        ConfigCommand configCmd = new ConfigCommand();
+        ConfigCommand configCmd = new ConfigCommand(this);
         
         CommandHandler cmdHandler = new CommandHandler(this);
         cmdHandler.registerCommand(configCmd);

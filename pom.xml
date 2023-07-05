@@ -30,7 +30,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
-				<version>3.2.4</version>
+				<version>3.3.0</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -38,7 +38,21 @@
 							<goal>shade</goal>
 						</goals>
 						<configuration>
-							<createDependencyReducedPom>false</createDependencyReducedPom>
+							<relocations>
+								<relocation>
+									<pattern>net.wesjd.anvilgui</pattern>
+									<shadedPattern>me.gorgeousone.anvilgui</shadedPattern>
+								</relocation>
+							</relocations>
+							<filters>
+								<filter>
+									<artifact>*:*</artifact>
+									<excludeDefaults>false</excludeDefaults>
+									<includes>
+										<include>me.gorgeousone.anvilgui</include>
+									</includes>
+								</filter>
+							</filters>
 						</configuration>
 					</execution>
 				</executions>
@@ -61,6 +75,10 @@
 			<id>sonatype</id>
 			<url>https://oss.sonatype.org/content/groups/public/</url>
 		</repository>
+		<repository>
+			<id>codemc-snapshots</id>
+			<url>https://repo.codemc.io/repository/maven-snapshots/</url>
+		</repository>
 	</repositories>
 
 	<dependencies>
@@ -69,6 +87,11 @@
 			<artifactId>spigot-api</artifactId>
 			<version>1.12.2-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.wesjd</groupId>
+			<artifactId>anvilgui</artifactId>
+			<version>1.7.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
