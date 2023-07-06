@@ -1,8 +1,9 @@
+<!--untrack this file: git update-index --assume-unchanged config.xml-->
 <profiles>
 	<profile>
 		<id>custom-output-dir</id>
 		<properties>
-			<outputDirectory>[path/to/output/directory]</outputDirectory>	//path to where you want to copy plugin jar to
+			<outputDirectory>[path/to/output/directory]</outputDirectory>	<!--path to where you want to copy generated jar to-->
 		</properties>
 	</profile>
 </profiles>
