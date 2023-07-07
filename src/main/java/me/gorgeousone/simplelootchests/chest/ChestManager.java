@@ -1,5 +1,6 @@
 package me.gorgeousone.simplelootchests.chest;
 
+import me.gorgeousone.simplelootchests.BlockPos;
 import org.bukkit.Location;
 
 import java.util.HashMap;
@@ -18,7 +19,7 @@ public class ChestManager {
 	}
 
 	public LootChest placeChest(Location blockPos, LootTable loot) {
-		LootChest chest = new LootChest(blockPos, loot);
+		LootChest chest = new LootChest(new BlockPos(blockPos), loot);
 		String worldId = blockPos.getWorld().getName();
 
 		chestsPerWorld.computeIfAbsent(worldId, uuid -> new HashSet<>());
@@ -30,5 +31,11 @@ public class ChestManager {
 		return null;
 	}
 
-	public void removeChest(LootChest chest) {}
+//	public void removeChest(LootChest chest) {
+//		UUID worldId = chest.getBlockPos().getWorld().getUID();
+//
+//		if (chestsPerWorld.containsKey(worldId)) {
+//			chestsPerWorld.get(worldId).remove(chest);
+//		}
+//	}
 }
