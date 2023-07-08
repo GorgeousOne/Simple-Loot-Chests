@@ -1,6 +1,6 @@
 # User-specific stuff
 .idea/
-config.xml
+external.properties
 
 *.iml
 *.ipr
