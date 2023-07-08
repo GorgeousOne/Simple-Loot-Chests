@@ -6,23 +6,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class GuiManager {
+public class GUIManager {
 	
-	private final Map<Inventory, InventoryGui> guis;
+	private final Map<Inventory, InventoryGUI> guis;
 	
-	public GuiManager() {
+	public GUIManager() {
 		guis = new HashMap<>();
 	}
 	
-	public void registerGui(InventoryGui gui) {
+	public void registerGUI(InventoryGUI gui) {
 		guis.put(gui.getInventory(), gui);
 	}
 	
-	public void removeGui(Inventory gui) {
+	public void removeGUI(Inventory gui) {
 		guis.remove(gui);
 	}
 	
-	public InventoryGui getGui(Inventory gui) {
+	public InventoryGUI getGUI(Inventory gui) {
 		return guis.getOrDefault(gui, null);
 	}
 }

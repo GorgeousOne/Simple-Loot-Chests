@@ -9,9 +9,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class InventoryListener implements Listener {
 
 	private final JavaPlugin plugin;
-	private final GuiManager guiManager;
+	private final GUIManager guiManager;
 	
-	public InventoryListener(JavaPlugin plugin, GuiManager guiManager) {
+	public InventoryListener(JavaPlugin plugin, GUIManager guiManager) {
 		this.plugin = plugin;
 		this.guiManager = guiManager;
 	}
@@ -22,7 +22,7 @@ public class InventoryListener implements Listener {
 		if (action != InventoryAction.PICKUP_ALL && action != InventoryAction.PICKUP_HALF) {
 			return;
 		}
-		InventoryGui gui = guiManager.getGui(event.getInventory());
+		InventoryGUI gui = guiManager.getGUI(event.getInventory());
 		
 		if (gui == null) {
 			return;

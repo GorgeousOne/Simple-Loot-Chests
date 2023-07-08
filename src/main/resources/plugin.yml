@@ -2,6 +2,6 @@ name: SimpleLootChests
 version: '${project.version}'
 main: me.gorgeousone.simplelootchests.SimpleLootChestsPlugin
 commands:
-    lootchests:
+    lootchest:
         aliases: [loot, lc]
         default: op

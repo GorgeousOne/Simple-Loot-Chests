@@ -3,7 +3,7 @@ package me.gorgeousone.simplelootchests.gui;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
-public class GuiAction {
+public class GUIClick {
 	
 	public enum ClickType {
 		LEFT, RIGHT;
@@ -12,7 +12,7 @@ public class GuiAction {
 	private final Inventory gui;
 	private final ClickType clickType;
 	
-	public GuiAction(Player player, Inventory gui, ClickType clickType) {
+	public GUIClick(Player player, Inventory gui, ClickType clickType) {
 		this.player = player;
 		this.gui = gui;
 		this.clickType = clickType;
@@ -22,7 +22,7 @@ public class GuiAction {
 		return player;
 	}
 	
-	public Inventory getGui() {
+	public Inventory getGUI() {
 		return gui;
 	}
 	
