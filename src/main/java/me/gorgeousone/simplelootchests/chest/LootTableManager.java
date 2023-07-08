@@ -1,7 +1,7 @@
 package me.gorgeousone.simplelootchests.chest;
 
-import me.gorgeousone.simplelootchests.LootTableGUI;
-import me.gorgeousone.simplelootchests.LootTableListGUI;
+import me.gorgeousone.simplelootchests.menu.LootTableGUI;
+import me.gorgeousone.simplelootchests.menu.LootTableListGUI;
 import me.gorgeousone.simplelootchests.gui.GUIManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -22,15 +22,14 @@ public class LootTableManager {
 		this.plugin = plugin;
 		this.guiManager = guiManager;
 		this.lootTables = new LinkedList<>();
-		this.lootTableList = new LootTableListGUI(plugin, this);
+		this.lootTableList = new LootTableListGUI(plugin, this, guiManager);
 		this.lootTableGUIs= new LinkedList<>();
 		
 		registerGUIs();
 	}
 	
 	private void registerGUIs() {
-		guiManager.registerGUI(lootTableList);
-		
+	
 //		for (LootTable lootTable : lootTables) {
 //			LootTableGUI gui = new LootTableGUI(lootTable);
 //			lootTableGUIs.add(gui);
@@ -40,9 +39,8 @@ public class LootTableManager {
 	
 	public void addLootTable(LootTable lootTable) {
 		lootTables.add(lootTable);
-		LootTableGUI gui = new LootTableGUI(lootTable);
+		LootTableGUI gui = new LootTableGUI(lootTable, guiManager);
 		lootTableGUIs.add(gui);
-		guiManager.registerGUI(gui);
 	}
 	
 	public void removeLootTable(LootTable lootTable) {

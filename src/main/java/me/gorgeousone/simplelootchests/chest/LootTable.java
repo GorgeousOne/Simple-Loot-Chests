@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class LootTable {
-
+	
 	private String name;
 	private final List<LootItem> items;
 	private boolean isPerPlayer;
@@ -22,6 +22,10 @@ public class LootTable {
 		return name;
 	}
 	
+	public List<LootItem> getItems() {
+		return new LinkedList<>(items);
+	}
+	
 	public ItemStack getChestItem() {
 		return ItemUtil.named(Material.CHEST, name);
 	}
@@ -32,5 +36,11 @@ public class LootTable {
 	
 	public boolean isPerPlayerLoot() {
 		return isPerPlayer;
+	}
+	
+	public int totalWeight() {
+		return items.stream()
+				.mapToInt(LootItem::getWeight)
+				.sum();
 	}
 }

@@ -1,6 +1,6 @@
 package me.gorgeousone.simplelootchests.command;
 
-import me.gorgeousone.simplelootchests.LootTableListGUI;
+import me.gorgeousone.simplelootchests.menu.LootTableListGUI;
 import me.gorgeousone.simplelootchests.cmdframework.command.BaseCommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

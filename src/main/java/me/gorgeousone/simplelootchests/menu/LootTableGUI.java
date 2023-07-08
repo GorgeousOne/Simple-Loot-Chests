@@ -1,22 +1,43 @@
-package me.gorgeousone.simplelootchests;
+package me.gorgeousone.simplelootchests.menu;
 
+import me.gorgeousone.simplelootchests.ItemUtil;
 import me.gorgeousone.simplelootchests.chest.LootTable;
+import me.gorgeousone.simplelootchests.gui.GUIManager;
 import me.gorgeousone.simplelootchests.gui.InventoryGUI;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
+
+import java.util.function.Consumer;
 
 public class LootTableGUI extends InventoryGUI {
 	
 	private final LootTable lootTable;
+	private final ChestContentsGUI contentsGui;
+	private Consumer<Player> onReturnCall;
 	
-	public LootTableGUI(LootTable lootTable) {
-		super("Loot table: " + lootTable.getName());
+	public LootTableGUI(LootTable lootTable, GUIManager guiManager) {
+		super("Loot table: " + lootTable.getName(), guiManager);
 		this.lootTable = lootTable;
+		this.contentsGui = new ChestContentsGUI(lootTable, guiManager);
 		
-		loadItems();
+		contentsGui.handleReturn(guiClose -> {
+			open(guiClose.getPlayer());
+		});
+		registerItems();
 	}
 	
-	private void loadItems() {
+	public LootTable getLootTable() {
+		return lootTable;
+	}
+	
+	void handleReturn(Consumer<Player> returnCall) {
+		this.onReturnCall = returnCall;
+	}
+	
+	private void registerItems() {
 		ItemStack backBtn = ItemUtil.named(Material.ARROW, "Back");
 		ItemStack contentsBtn = ItemUtil.named(Material.CHEST, "Edit contents");
 		ItemStack getItemBtn = ItemUtil.named(Material.WORKBENCH, "Get chest item");
@@ -25,11 +46,12 @@ public class LootTableGUI extends InventoryGUI {
 		
 		
 		setItem(0, 0, backBtn, guiClick -> {
-			close(guiClick.getPlayer());
-			//TODO reopen loot table list gui
+			if (onReturnCall != null) {
+				onReturnCall.accept(guiClick.getPlayer());
+			}
 		});
 		setItem(1, 4, contentsBtn, guiClick -> {
-			//TODO open loot table list gui
+			contentsGui.open(guiClick.getPlayer());
 		});
 		setItem(3, 1, getItemBtn, guiClick -> {
 			guiClick.getPlayer().getInventory().addItem(lootTable.getChestItem());
