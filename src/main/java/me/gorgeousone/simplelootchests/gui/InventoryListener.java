@@ -1,9 +1,12 @@
 package me.gorgeousone.simplelootchests.gui;
 
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class InventoryListener implements Listener {
@@ -18,16 +21,10 @@ public class InventoryListener implements Listener {
 	
 	@EventHandler
 	public void InventoryClick(InventoryClickEvent event) {
-		InventoryAction action = event.getAction();
-		if (action != InventoryAction.PICKUP_ALL && action != InventoryAction.PICKUP_HALF) {
-			return;
-		}
 		InventoryGUI gui = guiManager.getGUI(event.getInventory());
 		
-		if (gui == null) {
-			return;
+		if (gui != null) {
+			event.setCancelled(gui.handleClick(event));
 		}
-		event.setCancelled(true);
-		gui.handleClick(event);
 	}
 }

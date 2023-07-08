@@ -12,6 +12,8 @@ public class LootTableGUI extends InventoryGUI {
 	public LootTableGUI(LootTable lootTable) {
 		super("Loot table: " + lootTable.getName());
 		this.lootTable = lootTable;
+		
+		loadItems();
 	}
 	
 	private void loadItems() {
@@ -26,17 +28,17 @@ public class LootTableGUI extends InventoryGUI {
 			close(guiClick.getPlayer());
 			//TODO reopen loot table list gui
 		});
-		setItem(2, 5, contentsBtn, guiClick -> {
+		setItem(1, 4, contentsBtn, guiClick -> {
 			//TODO open loot table list gui
 		});
-		setItem(4, 1, getItemBtn, guiClick -> {
+		setItem(3, 1, getItemBtn, guiClick -> {
 			guiClick.getPlayer().getInventory().addItem(lootTable.getChestItem());
 		});
-		setItem(4, 3, renameBtn, guiClick -> {
+		setItem(3, 3, renameBtn, guiClick -> {
 			//TODO open anvil gui for renaming
 		});
-		setPerPlayerToggle(4, 5);
-		setItem(4, 5, deleteBtn, guiClick -> {
+		setPerPlayerToggle(3, 5);
+		setItem(3, 7, deleteBtn, guiClick -> {
 			//TODO delete loot table from list
 		});
 	}

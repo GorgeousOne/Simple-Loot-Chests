@@ -1,5 +1,6 @@
 package me.gorgeousone.simplelootchests.chest;
 
+import me.gorgeousone.simplelootchests.LootTableGUI;
 import me.gorgeousone.simplelootchests.LootTableListGUI;
 import me.gorgeousone.simplelootchests.gui.GUIManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -14,22 +15,34 @@ public class LootTableManager {
 	
 	private final GUIManager guiManager;
 	private final LootTableListGUI lootTableList;
+	private final List<LootTableGUI> lootTableGUIs;
+	
 	
 	public LootTableManager(JavaPlugin plugin, GUIManager guiManager) {
 		this.plugin = plugin;
 		this.guiManager = guiManager;
 		this.lootTables = new LinkedList<>();
 		this.lootTableList = new LootTableListGUI(plugin, this);
+		this.lootTableGUIs= new LinkedList<>();
 		
 		registerGUIs();
 	}
 	
 	private void registerGUIs() {
 		guiManager.registerGUI(lootTableList);
+		
+//		for (LootTable lootTable : lootTables) {
+//			LootTableGUI gui = new LootTableGUI(lootTable);
+//			lootTableGUIs.add(gui);
+//			guiManager.registerGUI(gui);
+//		}
 	}
 	
 	public void addLootTable(LootTable lootTable) {
 		lootTables.add(lootTable);
+		LootTableGUI gui = new LootTableGUI(lootTable);
+		lootTableGUIs.add(gui);
+		guiManager.registerGUI(gui);
 	}
 	
 	public void removeLootTable(LootTable lootTable) {
@@ -43,6 +56,10 @@ public class LootTableManager {
 			}
 		}
 		return null;
+	}
+	
+	public LootTableGUI getLootTableGUI(LootTable lootTable) {
+		return lootTableGUIs.get(lootTables.indexOf(lootTable));
 	}
 	
 	public List<LootTable> getLootTables() {

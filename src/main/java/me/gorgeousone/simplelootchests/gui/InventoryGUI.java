@@ -42,15 +42,30 @@ public class InventoryGUI {
 	}
 	//execute the callback of the clicked item
 	
-	public void handleClick(InventoryClickEvent event) {
+	public boolean handleClick(InventoryClickEvent event) {
+		InventoryAction action = event.getAction();
+
+		//allow moving items in player's own inventory, except moving items from or to gui
+		if (event.getClickedInventory().getHolder() instanceof Player
+		    && action != InventoryAction.MOVE_TO_OTHER_INVENTORY
+		    && action != InventoryAction.COLLECT_TO_CURSOR) {
+			return false;
+		}
 		int slot = event.getSlot();
+		
 		if (onClickCalls.containsKey(slot)) {
+			//only allow left and right click as interactions
+			if (action != InventoryAction.PICKUP_ALL && action != InventoryAction.PICKUP_HALF) {
+				return true;
+			}
 			onClickCalls.get(slot).accept(new GUIClick(
 					(Player) event.getWhoClicked(),
 					event.getInventory(),
 					event.getAction() == InventoryAction.PICKUP_ALL ? GUIClick.ClickType.LEFT : GUIClick.ClickType.RIGHT
 			));
+			return true;
 		}
+		return true;
 	}
 	
 	public void onClose(Consumer<Player> onCloseCall) {
@@ -58,7 +73,9 @@ public class InventoryGUI {
 	}
 	
 	public void close(Player player) {
-		onCloseCall.accept(player);
+		if (this.onCloseCall != null) {
+			onCloseCall.accept(player);
+		}
 	}
 	
 	public void open(Player player) {

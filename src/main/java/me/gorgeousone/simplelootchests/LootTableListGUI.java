@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class LootTableListGUI extends InventoryGUI {
@@ -47,7 +48,9 @@ public class LootTableListGUI extends InventoryGUI {
 		//TODO handle multi page logic
 		int row = index / 9;
 		int column = index % 9;
-		setItem(row, column, ItemUtil.named(Material.CHEST, lootTable.getName()), guiClick -> {});
+		setItem(row, column, ItemUtil.named(Material.CHEST, lootTable.getName()), guiClick -> {
+			lootTableManager.getLootTableGUI(lootTable).open(guiClick.getPlayer());
+		});
 	}
 	
 	private void addCreateBtn(int index) {
@@ -65,9 +68,17 @@ public class LootTableListGUI extends InventoryGUI {
 				.title("What should the loot chest be called?")
 				.itemLeft(new ItemStack(Material.NAME_TAG));
 		
+		namingGUI.text("a");
 		namingGUI.onClick((slot, stateSnapshot) -> {
-			lootTableManager.addLootTable(new LootTable(stateSnapshot.getText()));
-			return Arrays.asList(AnvilGUI.ResponseAction.close());
+			if (slot == AnvilGUI.Slot.OUTPUT) {
+				//TODO check if name is valid
+				LootTable table = new LootTable(stateSnapshot.getText());
+				lootTableManager.addLootTable(table);
+				lootTableManager.getLootTableGUI(table).open(stateSnapshot.getPlayer());
+//				return Arrays.asList(AnvilGUI.ResponseAction.close());
+				
+			}
+			return Collections.emptyList();
 		});
 	}
 }

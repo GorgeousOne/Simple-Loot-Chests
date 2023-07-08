@@ -27,9 +27,10 @@ public class LootTable {
 	}
 	
 	public void togglePerPlayerLoot() {
+		isPerPlayer = !isPerPlayer;
 	}
 	
 	public boolean isPerPlayerLoot() {
-		return isPerPlayerLoot();
+		return isPerPlayer;
 	}
 }
