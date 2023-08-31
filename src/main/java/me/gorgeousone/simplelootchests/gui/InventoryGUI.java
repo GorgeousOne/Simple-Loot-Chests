@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
+/**
+ * What is this?
+ */
 public class InventoryGUI {
 	
 	protected String name;
@@ -27,12 +30,23 @@ public class InventoryGUI {
 		this.gui = Bukkit.createInventory(null, 6*9, name);
 		guiManager.registerGUI(this);
 	}
-	
-	
+
+
+	/**
+	 * Why get this?
+	 * @return
+	 */
 	public Inventory getInventory() {
 		return gui;
 	}
-	
+
+	/**
+	 * Set item where?
+	 * @param row
+	 * @param column
+	 * @param item
+	 * @param onClickCall
+	 */
 	public void setItem(int row, int column, ItemStack item, Consumer<GUIClick> onClickCall) {
 		setItem(row*9 + column, item, onClickCall);
 	}
@@ -48,6 +62,11 @@ public class InventoryGUI {
 		}
 	}
 
+	/**
+	 * Who handels click when? public? privately?
+	 * @param event
+	 * @return
+	 */
 	//execute the callback of the clicked item
 	public boolean handleClick(InventoryClickEvent event) {
 		InventoryAction action = event.getAction();

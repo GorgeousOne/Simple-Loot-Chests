@@ -7,6 +7,9 @@ import org.bukkit.inventory.ItemStack;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * What is a loot table?
+ */
 public class LootTable {
 	
 	private String name;

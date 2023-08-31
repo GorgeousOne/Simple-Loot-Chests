@@ -6,6 +6,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+/**
+ * What are you listing?
+ */
 public class ListChestsCommand extends BaseCommand {
 	
 	private final JavaPlugin plugin;

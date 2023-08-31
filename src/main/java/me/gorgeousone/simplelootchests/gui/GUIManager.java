@@ -5,7 +5,9 @@ import org.bukkit.inventory.Inventory;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * Why do guis need to be managed?
+ */
 public class GUIManager {
 	
 	private final Map<Inventory, InventoryGUI> guis;

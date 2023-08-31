@@ -5,6 +5,9 @@ import org.bukkit.inventory.ItemStack;
 
 import java.text.DecimalFormat;
 
+/**
+ * What is difference between item and loot item?
+ */
 public class LootItem {
 
 	private static DecimalFormat percentFormat = new DecimalFormat("#.0");

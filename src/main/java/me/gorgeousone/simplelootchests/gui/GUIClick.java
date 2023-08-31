@@ -3,6 +3,9 @@ package me.gorgeousone.simplelootchests.gui;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
+/**
+ * What kind of guis are clicked here???
+ */
 public class GUIClick {
 	
 	public enum ClickType {

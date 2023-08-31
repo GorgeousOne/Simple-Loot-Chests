@@ -8,6 +8,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Why do loot tables need to be managed?
+ */
 public class LootTableManager {
 	
 	private final JavaPlugin plugin;
@@ -27,7 +30,10 @@ public class LootTableManager {
 		
 		registerGUIs();
 	}
-	
+
+	/**
+	 * Why do guis need to be registered?
+	 */
 	private void registerGUIs() {
 	
 //		for (LootTable lootTable : lootTables) {

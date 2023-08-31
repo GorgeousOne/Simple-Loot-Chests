@@ -4,6 +4,9 @@ import me.gorgeousone.simplelootchests.BlockPos;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
+/**
+ * Is a loot chest the item or the concept?
+ */
 public class LootChest {
 	private final BlockPos blockPos;
 	private final LootTable loot;

@@ -6,6 +6,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+/**
+ * What blocks do you listen to?
+ */
 public class BlockListener {
 	
 	private final ChestManager chestManager;

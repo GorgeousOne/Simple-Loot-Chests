@@ -8,7 +8,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ItemUtil {
-	
+
+	/**
+	 * Name what part of an item?
+	 * @param material
+	 * @param displayName
+	 * @return
+	 */
 	public static ItemStack named(Material material, String displayName) {
 		ItemStack item = new ItemStack(material);
 		ItemMeta meta = item.getItemMeta();
@@ -16,7 +22,13 @@ public class ItemUtil {
 		item.setItemMeta(meta);
 		return item;
 	}
-	
+
+	/**
+	 * Does this adds or replace lore?
+	 * @param item
+	 * @param loreLines
+	 * @return
+	 */
 	public static ItemStack addLore(ItemStack item, String... loreLines) {
 		ItemStack copy = item.clone();
 		ItemMeta meta = copy.getItemMeta();

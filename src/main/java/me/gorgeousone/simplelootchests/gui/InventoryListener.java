@@ -7,6 +7,9 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+/**
+ * What kind of inventories does this listen to?
+ */
 public class InventoryListener implements Listener {
 
 	private final JavaPlugin plugin;

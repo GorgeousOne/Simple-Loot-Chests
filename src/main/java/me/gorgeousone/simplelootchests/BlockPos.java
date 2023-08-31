@@ -5,6 +5,9 @@ import org.bukkit.World;
 
 import java.util.Objects;
 
+/**
+ * Is this the int equivalent to location?
+ */
 public class BlockPos {
 
 	private World world;
